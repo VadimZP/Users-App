@@ -1,0 +1,28 @@
+<div class="user-block">
+  <div class="column-1">
+    <img src="{{$ctrl.person.picture.large}}" alt="user-photo" class="user-photo">
+    <h2 class="user-name">{{$ctrl.person.name.first}}</h2>
+    <h2 class="user-surname"> {{$ctrl.person.name.last}}</h2>
+    <h3 class="user-city"> {{$ctrl.person.location.city}}</h3>
+  </div>
+  <div class="column-2">
+    <div class="column-2_row">
+      <div class="info " ng-class="location ? 'active': null" ng-click="location=true; contacts=false" ng-init="location=true">Location</div>
+      <div class="info" ng-class="contacts ? 'active': null" ng-click="contacts=true; location=false; " ng-init="contacts=false">My Contacts</div>
+    </div>
+    <div class="info-description">
+      <div class="info_location" ng-hide=location>
+        <p><span>Street:</span> {{$ctrl.person.location.street}}</p>
+        <p><span>City:</span> {{$ctrl.person.location.city}}</p>
+        <p><span>State:</span> {{$ctrl.person.location.state}}</p>
+        <p><span>Postcode:</span> {{$ctrl.person.location.postcode}}</p>
+      </div>
+      <div class="info_contacts" ng-hide=contacts>
+        <p><span>Email:</span> {{$ctrl.person.email}}</p>
+        <p><span>Phone:</span> {{$ctrl.person.phone}}</p>
+        <p><span>Cell:</span> {{$ctrl.person.cell}}</p>
+        <p><span>Id:</span> {{$ctrl.person.id.value}}</p>
+      </div>
+    </div>
+  </div>
+</div>

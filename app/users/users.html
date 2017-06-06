@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-3">Welcome, User!</h1>
+        <p class="lead">This is a simple user-search application</p>
+        <hr class="my-4" width="40%" style="float: left">
+        <p style="clear:both">If you want to find someone, use the input below</p>
+      </div>
+    </div>
+    <input ng-model="searchUser" type="text" class="form-control" placeholder="Search user...">
+    <table class="table table-hover">
+      <thead class="thead-inverse">
+        <tr>
+          <th>Title</th>
+          <th class="first-name triangle" ng-click="sortBy('name.first')">First Name</th>
+          <th class="last-name triangle" ng-click="sortBy('name.last')">Last Name</th>
+          <th>Username</th>
+          <th>Gender</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="person in $ctrl.users | filter:search | orderBy:propertyName" data-toggle="modal" data-target="#myModal" ng-click="getUsername(person.login.username)">
+          <td>{{person.name.title}}</td>
+          <td>{{person.name.first}}</td>
+          <td>{{person.name.last}}</td>
+          <td>{{person.login.username}}</td>
+          <td>{{person.gender}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- Modal 1-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Choose an action</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" ng-click="showPersonProfile()">Open profile</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-dismiss="modal" data-target="#myModal2">Delete user</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal 2-->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel2">Are you sure?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" ng-click="removeUser()">Yes</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-dismiss="modal" data-target="#myModal">No</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

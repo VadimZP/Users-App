@@ -1,0 +1,85 @@
+.container td a {
+  color: #557cab;
+  text-decoration: none;
+  outline: none;
+}
+
+.jumbotron {
+  background: url('./users-bg.png') no-repeat;
+  background-position: 100% 85%;
+}
+
+.form-control {
+  margin-bottom: 20px;
+}
+
+.container td,
+th[scope="row"] {
+  cursor: pointer;
+  padding: 1.5rem;
+  color: #557cab;
+}
+
+td::first-letter {
+  text-transform: uppercase;
+}
+
+.container thead th {
+  background: #59a5ff;
+}
+
+.modal-footer .btn-secondary,
+.btn-primary {
+  margin: 0 auto;
+}
+
+.first-name:hover,
+.last-name:hover {
+  cursor: pointer;
+  background: #6bafff;
+}
+
+.first-name:active,
+.last-name:active {
+  cursor: pointer;
+  background: #4b9bfb;
+}
+
+.user-name,
+.user-surname,
+.user-city {
+  color: #7b7b7b;
+}
+
+.triangle::after {
+  content: '';
+  top: 15px;
+  left: 10px;
+  position: relative;
+  border: 5px solid transparent;
+  border-top: 7px solid #fff;
+}
+
+.info {
+  position: relative;
+}
+
+.active::before,
+.active::after {
+  content: '';
+  position: absolute;
+  left: 135px;
+  bottom: -20px;
+  border: 10px solid transparent;
+  border-top: 10px solid #e2e2e2;
+}
+
+.active::after {
+  border-top: 10px solid white;
+  bottom: -19px;
+}
+
+.active:hover::after,
+.active:hover::before {
+  border-top: 10px solid #f3f3f3;
+}
