@@ -1,13 +1,13 @@
 const mainAppModule = angular.module('usersApp', ['ui.router', 'users', 'person']);
 
-mainAppModule.config(function ($stateProvider, $urlRouterProvider) {
+mainAppModule.config(($stateProvider, $urlRouterProvider) => {
 
     const usersState = {
         name: 'users',
         url: '',
         component: 'users',
         resolve: {
-            users: function (UsersService) {
+            users: (UsersService) => {
                 return UsersService.getAllUsers();
             }
         }
@@ -18,7 +18,7 @@ mainAppModule.config(function ($stateProvider, $urlRouterProvider) {
         url: '/person/{personUsername}',
         component: 'person',
         resolve: {
-            person: function (UsersService, $transition$) {
+            person: (UsersService, $transition$) => {
                 return UsersService.getUser($transition$.params().personUsername);
             }
         }
