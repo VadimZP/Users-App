@@ -5,7 +5,7 @@ angular
             users: '<'
         },
         templateUrl: 'users/users.html',
-        controller: ('UsersCtrl', ['$scope', '$location', '$http', function ($scope, $location, $http) {
+        controller: ('UsersCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) => {
 
             let username = '';
             clickedUser = '';
