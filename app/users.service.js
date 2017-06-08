@@ -1,16 +1,16 @@
 angular.module('usersApp').service('UsersService', function ($http) {
     const service = {
-        getAllUsers: function () {
+        getAllUsers: () => {
             return $http.get('users/users-list.json').then(function (response) {
                 return response.data;
             });
         },
-        getUser: function (username) {
+        getUser: (username) => {
             function personMatchesParam(person) {
                 return person.login.username === username;
             }
 
-            return service.getAllUsers().then(function (users) {
+            return service.getAllUsers().then((users) => {
                 return users.find(personMatchesParam)
             });
         },
