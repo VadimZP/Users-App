@@ -7,7 +7,7 @@ mainAppModule.config(($stateProvider, $urlRouterProvider) => {
         url: '',
         component: 'users',
         resolve: {
-            users: (UsersService) => {
+            users (UsersService) {
                 return UsersService.getAllUsers();
             }
         }
@@ -18,7 +18,7 @@ mainAppModule.config(($stateProvider, $urlRouterProvider) => {
         url: '/person/{personUsername}',
         component: 'person',
         resolve: {
-            person: (UsersService, $transition$) => {
+            person (UsersService, $transition$) {
                 return UsersService.getUser($transition$.params().personUsername);
             }
         }
