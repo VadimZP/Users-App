@@ -4,7 +4,7 @@ mainAppModule.config(($stateProvider, $urlRouterProvider) => {
 
     const usersState = {
         name: 'users',
-        url: '',
+        url: '/',
         component: 'users',
         resolve: {
             users (UsersService) {
@@ -23,7 +23,8 @@ mainAppModule.config(($stateProvider, $urlRouterProvider) => {
             }
         }
     }
-
     $stateProvider.state(usersState);
     $stateProvider.state(personState);
+    
+     $urlRouterProvider.otherwise('/');
 });
